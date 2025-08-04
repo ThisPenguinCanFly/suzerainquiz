@@ -1,0 +1,163 @@
+@font-face {
+  font-family: 'LiberationSansBold';
+  src: url('fonts/LiberationSans-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'LiberationSansRegular';
+  src: url('fonts/LiberationSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'LoraItalic';
+  src: url('fonts/Lora-Italic-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Lora';
+  src: url('fonts/Lora-VariableFont_wght.ttf') format('truetype');
+}
+
+:root {
+  --USP: #4F2845;
+  --USPc: #4F282B;
+  --USPr: #3B284F;
+  --PFJP: #28ACE4;
+  --NFP: #825033;
+  --ID: #909090;
+  --SUPPORT: #96CEB4;
+  --TOLERATE: #F7DC6F;
+  --OPPOSE: #FF6B6B;
+  --BACKGROUND: #150D10;
+  --BACKGROUND2: #140D14;
+  --TEXT: #ECDCAB;
+  --TEXT2: #BAA878;
+  --WHITE: #FFFFFF;
+  --RED: #E74C3C;
+  --GREEN: #3CE88E;
+  --UIBLACK: #141414;
+  --UIBLACKHOVER: #1E1E1E;
+}
+
+body {
+  font-family: 'LiberationSansBold';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(135deg, #150D10 0%, #140D14 100%);
+  color: var(--TEXT);
+}
+
+.quiz-container {
+  background-color: var(--UIBLACK);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 90%; /* Mobile first */
+  max-width: 500px; /* Max width for larger screens */
+  text-align: center;
+}
+
+h1 {
+  color: var(--TEXT);
+  margin-bottom: 20px;
+}
+
+.question-display {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.option-button {
+  background-color: var(--UIBLACK);
+  border: 1px solid #ced4da;
+  padding: 12px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  text-align: left;
+  transition: background-color 0.2s, border-color 0.2s;
+  color: var(--TEXT)
+}
+
+.option-button:hover:not(:disabled) {
+  background-color: var(--UIBLACK);
+  border-color: var(--TEXT);
+}
+
+.option-button.selected {
+  background-color: var(--UIBLACKHOVER);
+  color: var(--TEXT);
+  border-color: var(--TEXT);
+}
+
+/* Feedback styles */
+.option-button.correct {
+  background-color: var(--GREEN); /* Green for correct */
+  color: var(--UIBLACK);
+  border-color: var(--TEXT);
+}
+
+.option-button.incorrect {
+  background-color: var(--RED); /* Red for incorrect */
+  color: var(--UIBLACK);
+  border-color: var(--TEXT);
+}
+
+.option-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7; /* Slightly dim disabled buttons */
+}
+
+.restart-btn {
+  background-color: var(--GREEN);
+  color: var(--UIBLACK);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+  width: 100%;
+  transition: background-color 0.2s;
+}
+
+.restart-btn:hover {
+  background-color: var(--GREEN);
+}
+
+.results-display {
+  font-size: 1.3em;
+  margin-top: 20px;
+  font-weight: bold;
+  color: var(--TEXT);
+}
+
+.hidden {
+  display: none;
+}
+
+/* Media query for larger screens (e.g., tablets and desktops) */
+@media (min-width: 768px) {
+  .quiz-container {
+    padding: 30px;
+  }
+
+  .option-button {
+    padding: 15px 20px;
+  }
+
+  .restart-btn {
+    width: auto; /* Allow button to size naturally */
+    padding: 15px 30px;
+  }
+}
